@@ -1,4 +1,4 @@
-cipherText2 = "xultpaajcxitltlxaarpjhtiwtgxktghidhipxciwtvgtpilpit ghlxiwiwtxgqadds"
+cipherText = "xultpaajcxitltlxaarpjhtiwtgxktghidhipxciwtvgtpilpit ghlxiwiwtxgqadds"
 
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 freqTable = {'a':0.0817,'b':0.0150,'c':0.0278,'d':0.0425,'e':0.1270,'f':0.0223,
@@ -7,19 +7,31 @@ freqTable = {'a':0.0817,'b':0.0150,'c':0.0278,'d':0.0425,'e':0.1270,'f':0.0223,
             's':0.0633,'t':0.0906,'u':0.0276,'v':0.0098,'w':0.0236,'x':0.0015,
             'y':0.0197,'z':0.0007}
 
-plainText2 = ''
+plainText = ''
 arr = []
 common = ''
 temp = 0
+
+def searchText(char, text = cipherText):
+    text = text.replace(' ', '')
+    count = 0
+    for i in range(len(text)):
+        if(text[i] == char):
+            count+=1
+    return [char, count/len(text)]
+
 for x in alphabet:
-	arr +=[searchText(x, cipherText2)]
+	arr +=[searchText(x, cipherText)]
+	
 for x in arr:
     if temp < x[1]:
         temp = x[1]
         common = x[0]
 shift = (alphabet.index(common) - alphabet.index('e'))%len(alphabet)
-for x in cipherText2:
+for x in cipherText:
     if(x != ' '):
-        plainText2 += alphabet[alphabet.index(x)-shift]
+        plainText += alphabet[alphabet.index(x)-shift]
+    else:
+        plainText += x
 
-print("\n\nCipher Text2: \n" + cipherText2,"\nPlain Text2: \n"+ plainText2) 
+print("\n\nCipher Text: \n" + cipherText,"\nPlain Text: \n"+ plainText) 

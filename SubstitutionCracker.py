@@ -292,11 +292,6 @@ for x in cipherText1:
         plainText += key[x]
     except:
         plainText += x
-for x in cipherText1:
-    try:
-        plainTextTrue += keyTrue[x]
-    except:
-        plainTextTrue += x
 
 print("CipherText: \n"+ cipherText1,
       "\n\nPlainText: \n"+ plainText)

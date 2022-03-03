@@ -293,5 +293,5 @@ for x in cipherText1:
     except:
         plainText += x
 
-print("CipherText: \n"+ cipherText1,
-      "\n\nPlainText: \n"+ plainText)
+print("Cipher Text: \n"+ cipherText1,
+      "\n\nPlain Text: \n"+ plainText)
